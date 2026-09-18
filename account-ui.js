@@ -417,5 +417,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     mo.observe(document.body, { childList: true, subtree: true });
   });
-  mo.observe(document.body, { childList: true, subtree: true });
+  if (document.readyState !== "loading" && document.body) {
+    mo.observe(document.body, { childList: true, subtree: true });
+  }
 })();

@@ -335,6 +335,8 @@
       b.addEventListener("click", function (ev) { ev.stopImmediatePropagation(); openChat(); }, true);
     });
   }
-  new MutationObserver(bind).observe(document.body, { childList: true, subtree: true });
-  bind();
+  var chatMo = new MutationObserver(bind);
+  function startChat() { bind(); chatMo.observe(document.body, { childList: true, subtree: true }); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", startChat);
+  else startChat();
 })();
