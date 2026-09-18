@@ -61,7 +61,7 @@
   css.textContent = `
 :root{--cn-card:#ffffff;--cn-bg:#ffffff;--cn-text:#141414;--cn-text-muted:#666666;--cn-border:#e2e5e9;--cn-muted:#f3f4f6;--cn-primary:#0f766e;--cn-primary-text:#ffffff;--cn-secondary:#e6f2f0}
 .dark{--cn-card:#192a34;--cn-bg:#101f28;--cn-text:#e8f0f2;--cn-text-muted:#aab7ba;--cn-border:#30444f;--cn-muted:#253e4b;--cn-primary:#55cebc;--cn-primary-text:#101f28;--cn-secondary:#2d4852}
-.cn-chat-backdrop{position:fixed;inset:0;z-index:98;background:rgba(8,15,14,.45);backdrop-filter:blur(3px)}
+.cn-chat-backdrop{position:fixed;inset:0;z-index:98;background:rgba(8,15,14,0.97);backdrop-filter:blur(3px)}
 .cn-chat-shell{position:fixed;z-index:99;inset:auto 12px 12px 12px;top:auto;height:min(620px,calc(100dvh - 24px));display:flex;background:var(--cn-card,#fff);color:var(--cn-text,#111);border:1px solid var(--cn-border,#e5e5e5);border-radius:1.25rem;box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:hidden;font-family:inherit;animation:cnChatUp .18s ease-out}
 @media(min-width:640px){.cn-chat-shell{left:20px;right:auto;width:820px;max-width:calc(100vw - 40px)}}
 @keyframes cnChatUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}

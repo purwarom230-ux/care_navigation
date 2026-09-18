@@ -13,7 +13,7 @@
   css.textContent = `
 :root{--cn-card:#ffffff;--cn-bg:#ffffff;--cn-text:#141414;--cn-text-muted:#666666;--cn-border:#e2e5e9;--cn-muted:#f3f4f6;--cn-primary:#0f766e;--cn-primary-text:#ffffff;--cn-secondary:#e6f2f0}
 .dark{--cn-card:#192a34;--cn-bg:#101f28;--cn-text:#e8f0f2;--cn-text-muted:#aab7ba;--cn-border:#30444f;--cn-muted:#253e4b;--cn-primary:#55cebc;--cn-primary-text:#101f28;--cn-secondary:#2d4852}
-.cn-hf-overlay{position:fixed;inset:0;z-index:90;display:flex;align-items:flex-start;justify-content:center;background:rgba(10,20,18,.55);backdrop-filter:blur(4px);padding:1.25rem;overflow:auto}
+.cn-hf-overlay{position:fixed;inset:0;z-index:90;display:flex;align-items:flex-start;justify-content:center;background:rgba(10,20,18,0.97);backdrop-filter:blur(4px);padding:1.25rem;overflow:auto}
 .cn-hf-card{width:100%;max-width:760px;background:var(--cn-card,#fff);color:var(--cn-text,#111);border:1px solid var(--cn-border,#e5e5e5);border-radius:1.5rem;padding:1.75rem;box-shadow:0 25px 60px rgba(0,0,0,.25);font-family:inherit;position:relative;margin-top:3vh}
 .cn-hf-card h2{font-size:1.4rem;font-weight:700;margin:0 0 .2rem}
 .cn-hf-sub{margin:0 0 1.1rem;font-size:.85rem;color:var(--cn-text-muted,#666)}
