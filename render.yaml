@@ -1,0 +1,20 @@
+# Render Blueprint for the Care Navigation static site.
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: care-navigation
+    runtime: static
+    staticPublishPath: .
+    # Generate the real gemini-config.js at build time from the committed
+    # example, substituting the key stored as a Render environment variable.
+    # The generated file is never committed to git.
+    buildCommand: sed "s|PASTE_YOUR_GEMINI_API_KEY_HERE|$GEMINI_API_KEY|" gemini-config.example.js > gemini-config.js
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+    # SPA rewrite: unmatched paths serve the React app so client-side
+    # routes like /services or /faq load correctly on refresh.
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

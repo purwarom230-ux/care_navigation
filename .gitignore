@@ -12,3 +12,6 @@ Desktop.ini
 
 # Gemini config with real API key - local only
 gemini-config.js
+
+# Local Firebase config (real keys are secrets; example is committed)
+firebase-config.js
