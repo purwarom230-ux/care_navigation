@@ -15,3 +15,6 @@ gemini-config.js
 
 # Local Firebase config (real keys are secrets; example is committed)
 firebase-config.js
+
+# Freebuff app metadata + local preview build (contains inlined secrets)
+.freebuff/
