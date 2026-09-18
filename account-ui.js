@@ -389,6 +389,15 @@
     if (t && t.getAttribute("aria-expanded") !== "false") t.click();
   }
   function enhanceMobileNav(nav) {
+    // Hide the React-rendered "Get assistance" entry inside the hamburger drawer.
+    // Hiding (not removing) keeps React's virtual DOM in sync - no reconciliation
+    // errors. The standalone header link beside Sign in is outside this <nav> and stays.
+    nav.querySelectorAll("a, button").forEach(function (el) {
+      if ((el.textContent || "").trim() === "Get assistance") {
+        el.style.display = "none";
+        el.setAttribute("data-cn-hidden", "1");
+      }
+    });
     var stateKey = user ? (user.email || user.uid) : "anon";
     if (nav.getAttribute("data-cn-user") === stateKey) return;
     nav.setAttribute("data-cn-user", stateKey);
