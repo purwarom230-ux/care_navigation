@@ -9,3 +9,6 @@ Desktop.ini
 # Editor folders
 .vscode/
 .idea/
+
+# Gemini config with real API key - local only
+gemini-config.js
