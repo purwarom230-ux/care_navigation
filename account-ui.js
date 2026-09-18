@@ -148,7 +148,7 @@
         ? A.signUp({ fullName: nameI.value, email: emailI.value, phone: phoneI.value, password: passI.value })
         : A.signIn(emailI.value, passI.value);
       p.then(function (u) {
-        user = u; closeOverlay(); renderBtn(btnRef); announce("Signed in as " + (u.fullName || u.email));
+        user = u; window.__cnUser = u; closeOverlay(); renderBtn(btnRef); announce("Signed in as " + (u.fullName || u.email));
       }).catch(function (ex) {
         showErr(err, ex && ex.message ? ex.message : "Something went wrong.");
         submit.disabled = false; submit.textContent = isSignup ? "Create account" : "Sign in";
@@ -170,7 +170,7 @@
 
     var googleBtn = h("button", { class: "cn-btn cn-btn-google", type: "button", onclick: function () {
       hideMsgs(err, ok);
-      A.signInWithGoogle().then(function (u) { user = u; closeOverlay(); renderBtn(btnRef); announce("Signed in as " + (u.fullName || u.email)); })
+      A.signInWithGoogle().then(function (u) { user = u; window.__cnUser = u; closeOverlay(); renderBtn(btnRef); announce("Signed in as " + (u.fullName || u.email)); })
         .catch(function (ex) { showErr(err, ex && ex.message ? ex.message : "Google sign-in failed."); });
     } });
     var gIcon = h("span", { "aria-hidden": "true" });
@@ -215,7 +215,7 @@
     m.appendChild(item("💬  Contact us", openContact, "menu-contact-us"));
     m.appendChild(item("💳  Payment options", openPayment, "menu-payment-options"));
     m.appendChild(item("Sign out", function () {
-      A.signOut().then(function () { user = null; renderBtn(btnRef); announce("Signed out"); });
+      A.signOut().then(function () { user = null; window.__cnUser = null; renderBtn(btnRef); announce("Signed out"); });
     }, "menu-signout", true));
 
     document.body.appendChild(m);
@@ -379,7 +379,7 @@
     setTimeout(function () { t.remove(); }, 2600);
   }
 
-  A.getCurrentUser().then(function (u) { user = u; mountHeaderButton(); });
+  A.getCurrentUser().then(function (u) { user = u; window.__cnUser = u; mountHeaderButton(); });
 
   /* ---------- hamburger (three-line) menu items ---------- */
   function closeMobileNav() {
@@ -400,10 +400,13 @@
       nav.appendChild(b);
     }
     addItem(user ? "👤  Your account" : "Sign in / Create account", function () { openYourAccount(); }, "mobile-your-account");
+    addItem("🛏  Book assistance", function () { if (window.CNOpenBooking) window.CNOpenBooking(); }, "mobile-book-assistance");
+    addItem("📋  My bookings", function () { if (window.CNOpenMyBookings) window.CNOpenMyBookings(); }, "mobile-my-bookings");
+    addItem("🔍  Find real hospitals", function () { if (window.CNOpenHospitalFinder) window.CNOpenHospitalFinder(); }, "mobile-find-hospitals");
     addItem("🔐  Login & security", openSecurity, "mobile-login-security");
     addItem("💬  Contact us", openContact, "mobile-contact-us");
     addItem("💳  Payment options", openPayment, "mobile-payment-options");
-    if (user) addItem("Sign out", function () { A.signOut().then(function () { user = null; renderBtn(btnRef); announce("Signed out"); }); }, "mobile-signout");
+    if (user) addItem("Sign out", function () { A.signOut().then(function () { user = null; window.__cnUser = null; renderBtn(btnRef); announce("Signed out"); }); }, "mobile-signout");
   }
   var mo = new MutationObserver(function () {
     var nav = document.querySelector('nav[aria-label="Mobile navigation"]');
