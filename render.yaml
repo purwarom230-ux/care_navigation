@@ -5,6 +5,8 @@ services:
     name: care-navigation
     runtime: static
     staticPublishPath: .
+    # Rebuild and publish automatically on every push to the connected branch.
+    autoDeploy: true
     # Generate the real gemini-config.js at build time from the committed
     # example, substituting the key stored as a Render environment variable.
     # The generated file is never committed to git.
