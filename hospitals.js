@@ -60,7 +60,9 @@
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded", "User-Agent": "CareNav-Demo/1.0" },
       body: "data=" + encodeURIComponent(q)
-    }).then(function (r) { return r.json(); }).then(function (data) {
+    }).then(function (r) { return r.text(); }).then(function (txt) {
+      var data;
+      try { data = JSON.parse(txt); } catch (e) { throw new Error("Hospital data service busy — please retry in a moment."); }
       var seen = {};
       var list = (data.elements || []).map(function (el) {
         var c = el.type === "way" ? el.center : el;
@@ -140,10 +142,10 @@
       var attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
       var map = L.map(containerId, { scrollWheelZoom: false }).setView([center.lat, center.lon], 12);
       L.tileLayer(tileUrl, { attribution: attribution, maxZoom: 19 }).addTo(map);
-      L.circleMarker([center.lat, center.lon], { radius: 7, color: "#0f766e", fillColor: "#14b8a6", fillOpacity: 1, weight: 3 })
+      L.circleMarker([center.lat, center.lon], { radius: 7, color: "#337a5b", fillColor: "#4ade9f", fillOpacity: 1, weight: 3 })
         .bindPopup("You are here").addTo(map);
       (markers || []).forEach(function (m) {
-        L.circleMarker([m.lat, m.lon], { radius: 6, color: "#b91c1c", fillColor: "#ef4444", fillOpacity: .9, weight: 2 })
+        L.circleMarker([m.lat, m.lon], { radius: 6, color: "#b45330", fillColor: "#e08b66", fillOpacity: .9, weight: 2 })
           .bindPopup("<b>" + m.name + "</b>" + (m.sub ? "<br>" + m.sub : "") +
             '<br><a target="_blank" rel="noopener" href="https://www.openstreetmap.org/directions?from=&to=' + m.lat + "%2C" + m.lon + '">Directions ↗</a>')
           .addTo(map);

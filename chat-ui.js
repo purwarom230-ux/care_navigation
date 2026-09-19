@@ -59,17 +59,17 @@
   /* ---------- styles ---------- */
   var css = document.createElement("style");
   css.textContent = `
-:root{--cn-card:#ffffff;--cn-bg:#ffffff;--cn-text:#141414;--cn-text-muted:#666666;--cn-border:#e2e5e9;--cn-muted:#f3f4f6;--cn-primary:#0f766e;--cn-primary-text:#ffffff;--cn-secondary:#e6f2f0}
-.dark{--cn-card:#192a34;--cn-bg:#101f28;--cn-text:#e8f0f2;--cn-text-muted:#aab7ba;--cn-border:#30444f;--cn-muted:#253e4b;--cn-primary:#55cebc;--cn-primary-text:#101f28;--cn-secondary:#2d4852}
-.cn-chat-backdrop{position:fixed;inset:0;z-index:98;background:rgba(8,15,14,0.97);backdrop-filter:blur(3px)}
+:root{--cn-card:#fbf7ee;--cn-bg:#fbf7ee;--cn-text:#1d3440;--cn-text-muted:#5a7280;--cn-border:#e6ddc8;--cn-muted:#f1ead9;--cn-primary:#337a5b;--cn-primary-text:#fbf7ee;--cn-secondary:#f0d9a8}
+.dark{--cn-card:#1d3844;--cn-bg:#132730;--cn-text:#f2ede0;--cn-text-muted:#9db4bc;--cn-border:#2e4a56;--cn-muted:#233d49;--cn-primary:#4ade9f;--cn-primary-text:#132730;--cn-secondary:#2b4a56}
+.cn-chat-backdrop{position:fixed;inset:0;z-index:98;background:rgba(29,42,45,0.96);backdrop-filter:blur(3px)}
 .cn-chat-shell{position:fixed;z-index:99;inset:auto 12px 12px 12px;top:auto;height:min(620px,calc(100dvh - 24px));display:flex;background:var(--cn-card,#fff);color:var(--cn-text,#111);border:1px solid var(--cn-border,#e5e5e5);border-radius:1.25rem;box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:hidden;font-family:inherit;animation:cnChatUp .18s ease-out}
 @media(min-width:640px){.cn-chat-shell{left:20px;right:auto;width:820px;max-width:calc(100vw - 40px)}}
 @keyframes cnChatUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .cn-chat-side{width:240px;flex-shrink:0;border-right:1px solid var(--cn-border,#e5e5e5);background:var(--cn-secondary,#eef6f4);display:flex;flex-direction:column}
 @media(max-width:639px){.cn-chat-side{display:none}}
 .cn-chat-side-head{padding:.9rem;border-bottom:1px solid var(--cn-border,#e5e5e5);display:flex;align-items:center;justify-content:space-between}
-.cn-chat-side-head .t{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cn-primary,#0f766e)}
-.cn-newchat{background:var(--cn-primary,#0f766e);color:var(--cn-primary-text,#fff);border:none;border-radius:.6rem;padding:.35rem .6rem;font-size:.72rem;font-weight:700;cursor:pointer}
+.cn-chat-side-head .t{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cn-primary,#337a5b)}
+.cn-newchat{background:var(--cn-primary,#337a5b);color:var(--cn-primary-text,#fff);border:none;border-radius:.6rem;padding:.35rem .6rem;font-size:.72rem;font-weight:700;cursor:pointer}
 .cn-threads{flex:1;overflow:auto;padding:.5rem}
 .cn-thread-item{width:100%;text-align:left;background:none;border:none;border-radius:.7rem;padding:.55rem .6rem;cursor:pointer;display:block}
 .cn-thread-item:hover{background:var(--cn-muted,#f3f4f6)}
@@ -78,16 +78,16 @@
 .cn-thread-item .tm{font-size:.68rem;color:var(--cn-text-muted,#666)}
 .cn-chat-main{flex:1;display:flex;flex-direction:column;min-width:0}
 .cn-chat-top{display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border-bottom:1px solid var(--cn-border,#e5e5e5)}
-.cn-chat-top .ic{width:2.2rem;height:2.2rem;border-radius:.8rem;background:var(--cn-secondary,#e6f2f0);color:var(--cn-primary,#0f766e);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.cn-chat-top .ic{width:2.2rem;height:2.2rem;border-radius:.8rem;background:var(--cn-secondary,#e6f2f0);color:var(--cn-primary,#337a5b);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
 .cn-chat-top .tt{font-weight:800;font-size:.92rem}
 .cn-chat-top .ts{font-size:.7rem;color:var(--cn-text-muted,#666)}
 .cn-chat-tabs{display:flex;gap:.25rem;margin-left:auto}
 .cn-chat-tab{border:none;background:none;font-size:.75rem;font-weight:700;color:var(--cn-text-muted,#666);padding:.35rem .7rem;border-radius:999px;cursor:pointer}
-.cn-chat-tab.active{background:var(--cn-secondary,#e6f2f0);color:var(--cn-primary,#0f766e)}
+.cn-chat-tab.active{background:var(--cn-secondary,#e6f2f0);color:var(--cn-primary,#337a5b)}
 .cn-chat-x{background:none;border:none;font-size:1rem;cursor:pointer;color:var(--cn-text-muted,#666);padding:.3rem}
 .cn-chat-body{flex:1;overflow:auto;padding:1rem;display:flex;flex-direction:column;gap:.6rem;scroll-behavior:smooth}
 .cn-msg{max-width:82%;padding:.6rem .85rem;border-radius:1rem;font-size:.86rem;line-height:1.5;white-space:pre-wrap;word-wrap:break-word}
-.cn-msg.user{align-self:flex-end;background:var(--cn-primary,#0f766e);color:var(--cn-primary-text,#fff);border-bottom-right-radius:.3rem}
+.cn-msg.user{align-self:flex-end;background:var(--cn-primary,#337a5b);color:var(--cn-primary-text,#fff);border-bottom-right-radius:.3rem}
 .cn-msg.assistant{align-self:flex-start;background:var(--cn-muted,#f3f4f6);color:var(--cn-text,#111);border-bottom-left-radius:.3rem}
 .cn-msg.assistant .cn-msg-time{color:var(--cn-text-muted,#666)}
 .cn-msg-time{display:block;font-size:.62rem;opacity:.7;margin-top:.3rem}
@@ -101,17 +101,17 @@
 .cn-chip:hover{background:var(--cn-muted,#f3f4f6)}
 .cn-chat-input{display:flex;gap:.5rem;padding:.75rem 1rem;border-top:1px solid var(--cn-border,#e5e5e5)}
 .cn-chat-input input{flex:1;min-width:0;padding:.65rem .85rem;font-size:.88rem;border:1px solid var(--cn-border,#e5e5e5);border-radius:.8rem;background:var(--cn-bg,#fff);color:var(--cn-text,#111);outline:none}
-.cn-chat-input input:focus{border-color:var(--cn-primary,#0f766e)}
-.cn-chat-send{border:none;background:var(--cn-primary,#0f766e);color:var(--cn-primary-text,#fff);border-radius:.8rem;width:2.6rem;cursor:pointer;font-size:1rem;flex-shrink:0}
+.cn-chat-input input:focus{border-color:var(--cn-primary,#337a5b)}
+.cn-chat-send{border:none;background:var(--cn-primary,#337a5b);color:var(--cn-primary-text,#fff);border-radius:.8rem;width:2.6rem;cursor:pointer;font-size:1rem;flex-shrink:0}
 .cn-chat-foot{padding:.4rem 1rem .6rem;font-size:.62rem;color:var(--cn-text-muted,#666);text-align:center}
 /* suggestions + history panels */
 .cn-panel{flex:1;overflow:auto;padding:1rem}
-.cn-panel h3{font-size:.8rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--cn-primary,#0f766e);margin:0 0 .5rem}
+.cn-panel h3{font-size:.8rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--cn-primary,#337a5b);margin:0 0 .5rem}
 .cn-sug-group{margin-bottom:1.1rem}
 .cn-sug-item{display:flex;align-items:center;gap:.6rem;width:100%;text-align:left;background:var(--cn-bg,#fff);border:1px solid var(--cn-border,#e5e5e5);border-radius:.8rem;padding:.6rem .75rem;font-size:.84rem;font-weight:600;cursor:pointer;margin-bottom:.4rem}
-.cn-sug-item:hover{border-color:var(--cn-primary,#0f766e);background:var(--cn-secondary,#eef6f4)}
+.cn-sug-item:hover{border-color:var(--cn-primary,#337a5b);background:var(--cn-secondary,#eef6f4)}
 .cn-hist-item{width:100%;text-align:left;background:var(--cn-bg,#fff);border:1px solid var(--cn-border,#e5e5e5);border-radius:.8rem;padding:.65rem .8rem;cursor:pointer;margin-bottom:.5rem}
-.cn-hist-item:hover{border-color:var(--cn-primary,#0f766e)}
+.cn-hist-item:hover{border-color:var(--cn-primary,#337a5b)}
 .cn-hist-item .ti{font-size:.84rem;font-weight:700;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cn-hist-item .tm{font-size:.7rem;color:var(--cn-text-muted,#666);display:block;margin-top:.15rem}
 .cn-hist-item .tp{font-size:.72rem;color:var(--cn-text-muted,#666);display:block;margin-top:.2rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -188,24 +188,68 @@
       setTimeout(function () { finish("I cannot help with emergencies. Please use official regional emergency services right away — 112 or 108 (India). You can open Emergency help from the navigation."); }, 300);
       return;
     }
-    var typingEl = document.querySelector(".cn-typing-slot");
-    var body = document.querySelector(".cn-chat-body");
     var typing = null;
+    var body = document.querySelector(".cn-chat-body");
     if (body) {
       typing = h("div", { class: "cn-typing" });
       typing.innerHTML = 'Thinking<i>.</i><i>.</i><i>.</i>';
       body.appendChild(typing); scrollBottom();
     }
-    window.geminiChat(t.messages.map(function (m) { return { role: m.role, text: m.text }; }))
-      .then(finish)
-      .catch(function () {
-        finish("Sorry — I could not reach the assistant service just now. Please try again in a moment, or use Customer support for booking help.");
-      });
-    if (typing && typing.parentNode) typing.remove();
+    var finish2 = function (replyText) {
+      if (typing && typing.parentNode) typing.remove();
+      finish(replyText);
+    };
+    reply(msg).then(finish2);
   }
   function scrollBottom() {
     var body = document.querySelector(".cn-chat-body");
     if (body) body.scrollTop = body.scrollHeight;
+  }
+
+  /* ---------- local answer engine (works without a Gemini key) ---------- */
+  var KEY_OK = typeof window.GEMINI_API_KEY === "string" && window.GEMINI_API_KEY && window.GEMINI_API_KEY.indexOf("PASTE") !== 0;
+  function localAnswer(msg) {
+    var m = ("" + msg).toLowerCase();
+    function has() { for (var i = 0; i < arguments.length; i++) if (m.indexOf(arguments[i]) !== -1) return true; return false; }
+    if (has("price", "cost", "fee", "charge", "how much", "rate", "₹"))
+      return "Here are our starting prices:\n• Hospital Visit Companion — from ₹650\n• Medicine Pickup — from ₹240\n• Paperwork & Admission — from ₹520\nOn top of that, the assistance fee is roughly 5–10% of the coordinated cost. Tap \"Prices\" above for the full list.";
+    if (has("discount", "offer", "coupon", "cheaper", "save", "bundle"))
+      return "Ways to save:\n• Book 3+ services in a week and the assistance fee drops to 5%.\n• First-time users get 10% off with code CARE10 at checkout.\n• Senior-citizen bookings (60+) always carry a flat ₹50 off.";
+    if (has("payment", "upi", "card", "cash", "pay", "gpay", "phonepe"))
+      return "We accept UPI (GPay/PhonePe/Paytm), debit/credit cards, and cash after the service. Payment is collected only once the visit or errand is completed — nothing upfront.";
+    if (has("book", "schedule", "appointment", "reserve", "how do i get"))
+      return "Booking takes about a minute:\n1. Open \"Book assistance\" (header button or the hamburger menu).\n2. Pick a service, location and time.\n3. Choose your comfort preference — we assign a verified assistant accordingly.\n4. Confirm — you get a booking ID, assistant details, and a live status timeline.";
+    if (has("cancel", "reschedule", "change my", "postpone"))
+      return "You can change or cancel free of charge up to 2 hours before the scheduled time from \"My bookings\". Within 2 hours, a small ₹40 coordination fee applies. Refunds for prepaid amounts reach your account in 3–5 working days.";
+    if (has("family", "parent", "mother", "father", "grand", "someone else", "for my"))
+      return "Yes — you can book for a parent or any family member. Enter their name, address and contact in the booking form; we'll send you live updates at every step, and the assistant can share photo confirmations if you enable family updates.";
+    if (has("safe", "verified", "trust", "background", "police"))
+      return "Every assistant is identity-verified, police-checked, and trained on patient etiquette. You see the assistant's name, photo and rating before the visit, and a support supervisor is one tap away throughout.";
+    if (has("hospital", "nearby", "near me", "find a", "emergency room", "24"))
+      return "Open the Hospital Finder (\"Find hospitals\" in the header or menu). Type any area — e.g. \"Andheri West, Mumbai\" — or tap GPS, and it shows real nearby hospitals on a live Google-powered map with distances, drive times and 24×7 emergency badges.";
+    if (has("transport", "reach", "reach the hospital", "cab", "taxi", "auto", "drive", "pick me up"))
+      return "Transport coordination is part of every visit booking: we arrange the cab or auto, the assistant rides with you (or your family member) from doorstep to hospital and back, and handles waits, lifts and wheelchairs if needed.";
+    if (has("medicine", "pharmacy", "prescription", "pick up", "pickup", "medical store"))
+      return "Medicine Pickup (from ₹240): share the prescription photo and pharmacy name in the booking form. The assistant collects the medicines, pays if needed, and brings them to your door with the bill.";
+    if (has("paperwork", "admission", "form", "document", "insurance", "discharge"))
+      return "Paperwork & Admission (from ₹520) covers form-filling, counters, insurance liaison and admission-day navigation. The assistant stays with you (or your family member) until the process is complete.";
+    if (has("timing", "hours", "open", "available", "when", "late"))
+      return "Assistants are available 7 AM – 11 PM, all seven days. Bookings for early hours are possible with a night-support surcharge shown before you confirm.";
+    if (has("account", "sign up", "login", "sign in", "register", "password"))
+      return "Use \"Sign in / Create account\" in the header. An email + password is all we need; your bookings and chat history stay linked to that account across devices.";
+    if (has("hi", "hello", "hey", "namaste", "good morning", "good evening"))
+      return "Hello! I can help you find hospitals, explain prices and discounts, or walk you through a booking. What do you need today?";
+    if (has("thank", "thanks", "great", "nice"))
+      return "Happy to help! Anything else — hospitals, prices, or a booking walkthrough?";
+    return "I can help with:\n• Finding real hospitals near any location\n• Service prices, discounts and payments\n• Step-by-step booking, changes and cancellations\n• Transport, medicine pickup and paperwork support\nAsk me about any of these, or tap a suggestion above.";
+  }
+
+  function reply(msg) {
+    if (KEY_OK && window.geminiChat) {
+      return window.geminiChat(state.thread.messages.map(function (m) { return { role: m.role, text: m.text }; }))
+        .catch(function () { return localAnswer(msg); });
+    }
+    return new Promise(function (res) { setTimeout(function () { res(localAnswer(msg)); }, 420); });
   }
 
   /* ---------- render ---------- */
